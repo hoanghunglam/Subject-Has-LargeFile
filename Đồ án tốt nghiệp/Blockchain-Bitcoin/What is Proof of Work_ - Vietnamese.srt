@@ -1,0 +1,183 @@
+1
+00:00:00,060 --> 00:00:01,999
+Bằng chứng công việc (Proof-of-Work) là gì? 
+
+2
+00:00:01,999 --> 00:00:07,470
+Thời kỳ đầu vào năm 1993, khái niệm Proof-of-Work (POW)
+đã bắt đầu được phát triển nhằm ngăn chặn 
+
+3
+00:00:07,470 --> 00:00:12,650
+hình thức tấn công từ chối dịch vụ và các hình thức lạm dụng dịch vụ khác
+ví dụ như spam, trên một mạng lưới bằng cách yêu cầu
+
+4
+00:00:12,650 --> 00:00:17,279
+mỗi người dùng dịch vụ phải thực hiện một công việc nào đó, 
+thường là dưới dạng cung cấp thời gian xử lý của một máy tính.
+
+5
+00:00:17,279 --> 00:00:23,329
+Năm 2009, Bitcoin đã cho thấy một sáng kiến 
+trong việc sử dụng POW làm một thuật toán đồng thuận
+
+6
+00:00:23,329 --> 00:00:28,060
+để xác minh các giao dịch và
+khai báo các block mới lên blockchain.
+
+7
+00:00:28,060 --> 00:00:33,820
+Từ đó, POW đã trở thành một thuật toán đồng thuận phổ biến
+được sử dụng rộng rãi trong nhiều loại tiền mã hóa.
+
+8
+00:00:33,820 --> 00:00:35,200
+Cách thức hoạt động.
+
+9
+00:00:35,200 --> 00:00:40,680
+Nói ngắn gọn, các thợ mỏ trong mạng lưới sẽ cạnh tranh 
+lẫn nhau để giải các bài toán phức tạp. 
+
+10
+00:00:41,860 --> 00:00:47,050
+Các bài toán này về cách giải thì khó
+nhưng để kiểm tra lời giải chính xác thì lại rất đơn giản. 
+
+11
+00:00:47,050 --> 00:00:51,011
+Khi một thợ mỏ tìm được lời giải một bài toán
+họ sẽ có thể khai báo block đó 
+
+12
+00:00:51,011 --> 00:00:56,290
+lên mạng lưới để các thợ mỏ khác 
+thực hiện việc xác minh xem lời giải có đúng hay không. 
+
+13
+00:00:56,290 --> 00:00:58,090
+Ta lấy ví dụ như sau.
+
+14
+00:00:58,090 --> 00:01:03,240
+Bitcoin là một hệ thống nền tảng blockchain được
+duy trì bởi một tập hợp các công việc từ 
+
+15
+00:01:03,240 --> 00:01:04,240
+các node phân tán. 
+
+16
+00:01:04,240 --> 00:01:08,030
+Một số node trong đó được gọi là thợ mỏ (miner) sẽ
+chịu trách nhiệm bổ sung các block mới
+
+17
+00:01:08,030 --> 00:01:09,299
+vào blockchain. 
+
+18
+00:01:09,299 --> 00:01:15,140
+Để làm được như vậy, thợ mỏ cần phải liên tục 
+thử và suy đoán các số giả ngẫu nhiên (gọi là NONCE).
+
+19
+00:01:15,140 --> 00:01:20,350
+Con số này, khi được kết hợp với dữ liệu cung cấp
+từ block và đi qua một hàm hash
+
+20
+00:01:20,350 --> 00:01:26,399
+sẽ phải đưa ra được một kết quả phù hợp với các điều kiện cho trước.
+Ví dụ như một hàm hash phải bắt đầu bằng 4 số 0 chẳng hạn. 
+
+21
+00:01:26,399 --> 00:01:31,159
+Khi tìm được kết quả phù hợp rồi, 
+các node khác sẽ xác minh tính hợp lệ của kết quả đó.
+
+22
+00:01:31,159 --> 00:01:34,789
+Node thợ mỏ sẽ nhận được phần thưởng block nếu hợp lệ. 
+
+23
+00:01:34,789 --> 00:01:39,609
+Do đó, nếu không tìm ra được một số NONCE 
+hợp lệ có tác dụng tạo ra lời giải cho một block nhất định
+
+24
+00:01:39,609 --> 00:01:45,170
+gọi là block hash, thì sẽ không thể bổ sung block mới 
+lên blockchain chính được. 
+
+25
+00:01:46,200 --> 00:01:51,740
+Mỗi block được xác thực sẽ chứa một block hash
+đại diện cho công việc mà thợ mỏ đã hoàn thành.
+
+26
+00:01:51,740 --> 00:01:54,049
+Đây là lý do vì sao cách làm này được gọi là 
+Bằng chứng công việc. 
+
+27
+00:01:54,049 --> 00:01:57,829
+POW có tác dụng bảo vệ mạng lưới chống lại 
+rất nhiều hình thức tấn công khác nhau.
+
+28
+00:01:57,829 --> 00:02:02,299
+Để có thể tấn công được vào hệ thống này sẽ 
+tốn một lượng sức mạnh tính toán không lồ và rất nhiều thời gian
+
+29
+00:02:02,299 --> 00:02:07,020
+để xử lý tính toán, do đó, cách làm này sẽ không 
+mang lại lợi ích cho hacker vì chi phí bỏ ra
+
+30
+00:02:07,020 --> 00:02:10,899
+là quá nhiều so với những gì 
+có thể thu lại được. 
+
+31
+00:02:10,899 --> 00:02:15,540
+Có một vấn đề với POW, đó là việc khai thác
+sẽ cần có các phần cứng máy tính đắt đỏ
+
+32
+00:02:15,540 --> 00:02:20,569
+tiêu tốn rất nhiều điện năng và ngoài việc
+các thuật toán phức tạp có tác dụng bảo mật
+
+33
+00:02:20,569 --> 00:02:25,990
+cho mạng lưới ra, thì người ra sẽ chẳng 
+sử dụng được nó vào việc gì khác cả. 
+
+34
+00:02:25,990 --> 00:02:30,290
+POW có thể không phải là giải pháp hiệu quả nhất,
+nhưng hiện nay nó vẫn là một thuật toán phổ biến 
+
+35
+00:02:30,290 --> 00:02:33,110
+được sử dụng để đạt được đồng thuận trong các blockchain. 
+
+36
+00:02:33,110 --> 00:02:37,069
+Hiện nay cũng đã có một số phương pháp thay thế cho POW
+để giải quyết các vấn đề đó, tuy nhiên
+
+37
+00:02:37,069 --> 00:02:41,220
+liệu chúng có thể thành công hay không thì
+chỉ có thời gian mới trả lời được. 
+
+38
+00:02:41,220 --> 00:02:45,450
+Đừng quên theo dõi các video khác của chúng tôi trên Binance Academy
+và theo dõi để cập nhật các nội dung mới nhé! 
+

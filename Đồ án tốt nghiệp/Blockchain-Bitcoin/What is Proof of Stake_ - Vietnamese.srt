@@ -1,0 +1,275 @@
+1
+00:00:00,130 --> 00:00:01,959
+Bằng chứng cổ phần (POS) là gì?
+
+2
+00:00:01,959 --> 00:00:07,080
+Thuật toán đồng thuận POS được giới thiệu 
+lần đầu vào năm 2011 trên diễn đàn Bitcointalk
+
+3
+00:00:07,080 --> 00:00:12,480
+với mục đích giải quyết các vấn đề hiện hữu
+của thuật toán phổ biến nhất vào thời điểm đó - Bằng chứng công việc (POW)
+
+4
+00:00:12,480 --> 00:00:16,789
+Cả 2 thuật toán này đều có mục đích chung là để đạt đượcsự đồng thuận trên blockchain
+
+5
+00:00:16,789 --> 00:00:18,960
+Sự khác biệt chính nằm ở nằm ở quy trình thực hiện.
+
+6
+00:00:18,960 --> 00:00:20,460
+Vậy thuật toán này hoạt động như thế nào?
+
+7
+00:00:20,460 --> 00:00:25,659
+Thuật toán POS sử dụng quy trình
+bầu cử giả ngẫu nhiên để chọn ra một node
+
+8
+00:00:25,659 --> 00:00:31,080
+nhận nhiệm vụ xác thực block tiếp theo, dựa trên
+một bộ kết hợp các yếu tố gồm có
+
+9
+00:00:31,080 --> 00:00:34,240
+thời gian đóng góp cổ phần, tính ngẫu nhiên và lượng cổ phần sở hữu của node đó.
+
+10
+00:00:34,240 --> 00:00:39,260
+Có một điểm đáng chú ý là trong hệ thống POS,
+cách khai thác khối được gọi là "rèn" (forge)
+
+11
+00:00:39,260 --> 00:00:41,480
+chứ không phải là "đào" (mine).
+
+12
+00:00:41,480 --> 00:00:46,430
+Tiền mã hóa sử dụng thuật toán POS thường
+sẽ khởi động bằng cách bán ra các đồng coin được khai thác từ trước
+
+13
+00:00:46,430 --> 00:00:50,960
+hoặc họ sẽ dùng POW trước rồi mới
+chuyển sang sử dụng POS
+
+14
+00:00:50,960 --> 00:00:55,730
+Trong các hệ thống POW thì các đồng coin mã hóa sẽ 
+được sinh ra ngày càng nhiều dưới dạng phần thưởng cho thợ đào
+
+15
+00:00:55,730 --> 00:01:02,030
+thì hệ thống POS sẽ lấy phí giao dịch làm phần thưởng.
+
+16
+00:01:02,030 --> 00:01:06,380
+Người dùng muốn tham gia vào quá trình rèn
+sẽ phải bỏ ra một lượng coin nhất định khóa cứng trên
+
+17
+00:01:06,380 --> 00:01:09,359
+mạng lưới, đây chính là cổ phần họ đóng góp.
+
+18
+00:01:09,359 --> 00:01:14,200
+Kích thước cổ phần sẽ quyết định khả năng được
+
+19
+00:01:14,200 --> 00:01:18,399
+rèn ra block tiếp theo của node đó, cổ phần càng nhiều
+thì cơ hội sẽ càng cao.
+
+20
+00:01:18,399 --> 00:01:22,700
+Để làm giảm lợi thế của các node lớn trong mạng lưới,
+
+21
+00:01:22,700 --> 00:01:26,219
+nhiều phương pháp riêng biệt khác đã được bổ sung vào
+quy trình chọn lựa.
+
+22
+00:01:26,219 --> 00:01:32,039
+2 phương pháp phổ biến nhất được sử dụng là 
+'Lựa chọn block ngẫu nhiên' và 'Lựa chọn Tuổi Coin'
+
+23
+00:01:32,039 --> 00:01:36,859
+Vơi 'Lựa chọn Block ngẫu nhiên', các node sẽ được nhận
+công việc xác thực sẽ được chọn bằng cách
+
+24
+00:01:36,859 --> 00:01:42,100
+kết hợp giữa các giá trị hash thấp nhất
+và có lượng cổ phần lớn nhất. Và vì kích thước
+
+25
+00:01:42,100 --> 00:01:47,280
+cổ phần là công khai nên các node hầu hết đều sẽ
+dự đoán được node nào tiếp theo sẽ đảm nhận công việc đó.
+
+26
+00:01:47,280 --> 00:01:52,310
+Phương pháp 'Lựa chọn bằng tuổi Coin' sẽ chọn ra các node
+dựa theo độ lâu năm của lượng cổ phần họ đóng góp
+
+27
+00:01:53,310 --> 00:01:57,360
+Tuổi coin sẽ được tính bằng cách nhân
+số ngày số coin đó đã được góp vào cổ phần
+
+28
+00:01:57,360 --> 00:02:00,500
+với tổng khối lượng.
+
+29
+00:02:00,500 --> 00:02:05,049
+Sau khi một node rèn xong một block, tuổi coin
+của node sẽ được đặt lại về 0, và sau đó
+
+30
+00:02:05,049 --> 00:02:09,560
+node này sẽ phải chờ một khoảng thời gian nữa
+để nhận việc rèn khối tiếp theo - điều này giúp ngăn ngừa
+
+31
+00:02:09,560 --> 00:02:12,080
+việc các khối lớn sẽ chiếm hết công việc trên blockchain.
+
+32
+00:02:12,080 --> 00:02:17,750
+Mỗi loại tiền mã hóa sử dụng thuật toán POS 
+đều có những bộ quy tắc kết hợp các phương pháp riêng
+
+33
+00:02:17,750 --> 00:02:22,020
+mà theo họ là tốt nhất cho cả họ và người dùng.
+
+34
+00:02:22,020 --> 00:02:26,330
+Khi một node được lựa chọn để rèn khối kế tiếp
+nó sẽ phải làm công việc kiểm tra tính hợp lệ của các giao dịch
+
+35
+00:02:26,330 --> 00:02:30,460
+trong khối, ký xác nhận khối và bổ sung khối lên blockchain
+
+36
+00:02:30,460 --> 00:02:35,280
+Phần thưởng mà node nhận được sẽ là chi phí
+phát sinh từ các giao dịch  mà nó đã xác thực trong block đó
+
+37
+00:02:36,520 --> 00:02:41,600
+Khi một node không muốn đảm nhận công việc rèn block nữa,
+phần thưởng mà nó kiếm được cùng với lượng cổ phần đóng góp ban đầu
+
+38
+00:02:41,600 --> 00:02:46,450
+sẽ được trả về sau một khoảng thời gian nhất định, 
+đủ cho mạng lưới có thể xác minh là
+
+39
+00:02:46,450 --> 00:02:51,200
+node đó không đưa block gian lận nào lên blockchain cả.
+
+40
+00:02:51,200 --> 00:02:55,040
+Về bảo mật,
+Lượng cổ phần đóng góp sẽ đóng vai trò là động lực tài chính
+
+41
+00:02:55,040 --> 00:02:59,490
+để ngăn chặn các node làm forger không làm việc hay
+tạo ra các giao dịch gian lận
+
+42
+00:02:59,490 --> 00:03:04,730
+Khi mạng lưới phát hiện ra một giao dịch gian lận,
+node đang đảm nhận làm forger sẽ bị mất 1 lượng cổ phần nó đang đóng góp
+
+43
+00:03:04,730 --> 00:03:08,150
+đi kèm với quyền được tham gia làm forger sau này.
+
+44
+00:03:08,150 --> 00:03:13,090
+Vì vậy, cứ khi nào mà lượng cổ phần đóng góp còn lớn hơn
+phần thưởng có thể thu được, thì các node làm xác thực sẽ
+
+45
+00:03:13,090 --> 00:03:16,160
+vẫn chịu tổn thất nếu nó có ý đồ gian lận.
+
+46
+00:03:16,160 --> 00:03:21,080
+Để có thể kiểm soát mạng lưới một cách hiệu quả
+và xác thực được các giao dịch giả mạo, một node
+
+47
+00:03:21,080 --> 00:03:26,390
+sẽ cần phải sở hữu lượng lớn cổ phần trong mạng lưới,
+đây chính là hình thức tấn công 51%.
+
+48
+00:03:26,390 --> 00:03:30,850
+Xét theo giá trị của từng đồng tiền mã hóa thì 
+việc này trên thực tế hầu như là bất khả thi,
+
+49
+00:03:30,850 --> 00:03:36,220
+bởi để có thể chiếm quyền kiểm soát mạng lưới thì 
+kẻ tấn công sẽ sở hữu được 51% lượng tổng cung.
+
+50
+00:03:36,220 --> 00:03:38,610
+Kết luận lại,
+Các ưu điểm của thuật toán POS
+
+51
+00:03:38,610 --> 00:03:41,830
+gồm có tính bảo mật cao và tiết kiệm năng lượng.
+
+52
+00:03:41,830 --> 00:03:47,860
+Ngày càng có nhiều người dùng muốn sở hữu node
+vì cách làm này khá đơn giản và ít tốn kém.
+
+53
+00:03:47,860 --> 00:03:52,320
+Nhưng cùng với đó, quy trình ngẫu nhiên sẽ 
+làm mất một phần tính phi tập trung của mạng lưới.
+
+54
+00:03:52,320 --> 00:03:55,819
+vì sẽ không cần tới các pool khai thác nữa.
+
+55
+00:03:55,819 --> 00:04:00,390
+Và vì coin mới dưới dạng phần thưởng sẽ không 
+được sản xuất ra nữa, nên giá trị
+
+56
+00:04:00,390 --> 00:04:03,280
+của đồng coin cũng sẽ ổn định hơn nhiều.
+
+57
+00:04:03,280 --> 00:04:08,760
+Cần lưu ý rằng, ngành công nghiệp tiền mã hóa
+đang thay đổi và tiến hóa từng ngày
+
+58
+00:04:08,760 --> 00:04:13,580
+kèm theo đó các phương pháp và thuật toán mới 
+cũng liên tục được thí nghiệm và phát triển dần.
+
+59
+00:04:14,740 --> 00:04:19,090
+Đừng quên theo dõi các video khác của chúng tôi trên
+Binance Academy và đón chờ các nội dung kế tiếp nhé!
+
