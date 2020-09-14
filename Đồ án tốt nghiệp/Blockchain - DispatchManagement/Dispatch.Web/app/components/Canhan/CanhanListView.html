@@ -1,0 +1,86 @@
+﻿
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 style="font-weight:bold;">CÁ NHÂN</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Người tham gia</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Danh sách cá nhân</h3>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" ng-model="filterExpression" placeholder="Search place ..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- có thể dùng c1: ng-click="AddProductCatogory(), c2: ui-sref -->
+                    <button class="btn btn-success" ui-sref="add_Canhan"><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-sm table-bordered">
+                        <thead>
+                            <tr style="text-align:center">
+                                <!--<th style="width:10px">Gửi</th> -->
+                                <th scope="col">ID</th>
+                                <th scope="col">Họ và tên</th>
+                                <th scope="col">Ngày sinh</th>
+                                <th scope="col">Giới tính</th>
+                                <th scope="col">Địa chỉ</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Đơn vị</th>
+                                <th scope="col">Khoa</th>
+                                <th scope="col">Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- ng-repeat khai báo biến lặp  -->
+                            <tr ng-repeat=" item in getParticipant| filter: filterExpression" style="text-align:center">
+                                <td>{{item.participantId}}</td>
+                                <td>{{item.hoTen }}</td>
+                                <td>{{item.ngaySinh }}</td>
+                                <td>{{item.gioiTinh }}</td>
+                                <td>{{item.diaChi }}</td>
+                                <td>{{item.email }}</td>
+                                <td>{{item.donVi}}</td>
+                                <td>{{item.khoa}}</td>
+                                <td>
+                                    <button class="btn btn-primary" style="font-size:13px;margin-top:2px" ui-sref="edit_Canhan({id:item.participantId})"><i class="fa fa-pencil-alt"></i> </button>
+                                    <button class="btn btn-danger" style="font-size:13px; margin-top:2px" ng-click="deleteParticipant(item.participantId)"><i class="fa fa-trash"></i> </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr></tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

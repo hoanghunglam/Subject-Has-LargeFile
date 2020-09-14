@@ -1,0 +1,162 @@
+﻿<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>
+                    Sửa Công Văn {{dispatchId}}
+                </h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item" style="cursor:pointer"><a ui-sref="arrivedDispatch">Công Văn</a></li>
+                    <li class="breadcrumb-item active">Sửa công văn</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+
+    <div class="card card-info">
+        <div class="card-header">
+            <h3 class="card-title">Thông tin công văn</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <!-- novalidate: không cho phép validate mặc định -->
+        <!-- ng-model: cơ chế bidding dữ liệu lên khai báo từ controller  -->
+        <form class="form-horizontal" novalidate name="frmEditDispatch" role="form">
+            <div class="card-body">
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Loại công văn</label>
+                    <div class="col-sm-10">
+                        <select type="text" class="form-control" name="field" required ng-model="dispatch.kieu">
+                            <option value="Chithi_CT">Chỉ thị</option>
+                            <option value="Congvan">Công văn</option>
+                            <option value="Baocao_BC">Báo cáo</option>
+                            <option value="Bienban_BB">Biên bản</option>
+                            <option value="Bancamket_CK">Bản cam kết</option>
+                            <option value="Banghinho_GN">Bản ghi nhớ</option>
+                            <option value="Bansaoluc_SL">Ban sao lục</option>
+                            <option value="Bansaoybanchinh_SY">Bản sao y bản chính</option>
+                            <option value="Banthoathuan_TTh">Bản thỏa thuận</option>
+                            <option value="Bantrichsao_TS">Trích sao</option>
+                            <option value="Bieumauthongke_BMTK">Biểu mẫu thống kê</option>
+                            <option value="Chuongtrinh_CTr">Chương trình</option>
+                            <option value="Congdien_CD">Công điện</option>
+                            <option value="Danhsach_DSs">Danh sách</option>
+                            <option value="Duan_DA">Dự án</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Số hiệu công văn</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required name="numberDispatch" ng-model="dispatch.so">
+                        <label class="error-content" ng-show="frmEditDispatch.numberDispatch.$invalid" style="color:red">Trường này không thể bỏ trống</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Ngày phát hành</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" required name="releaseDateDispatch" ng-model="dispatch.ngayPhatHanh" max="{{ngayMax}}">
+                        <label class="error-content" ng-show="frmAddDispatch.releaseDateDispatch.$invalid" style="color:red">Trường này không thể bỏ trống</label>
+                        <label class="error-content" ng-show="frmAddDispatch.idDispatch.$error.max" style="color:red">Ngày phát hành không được vượt qua ngày hiện tại</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Ngày tạo</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" required name="creationDateDispatch" ng-model="dispatch.ngayTao" min="{{dispatch.ngayPhatHanh}}" max="{{ngayMax}}">
+                        <label class="error-content" ng-show="frmAddDispatch.creationDateDispatch.$invalid" style="color:red">Trường này không thể bỏ trống</label>
+                        <label class="error-content" ng-show="frmAddDispatch.idDispatch.$error.min" style="color:red">Ngày tạo không được sau ngày phát hành</label>
+                        <label class="error-content" ng-show="frmAddDispatch.idDispatch.$error.max" style="color:red">Ngày tạo không được vượt qua ngày hiện tại</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Trích yếu</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" class="form-control" name="trichYeu" style="height:76px" ng-model="dispatch.trichYeu" placeholder="nội dung tóm tắt" maxlength="1000" />
+                        <label class="has-error" ng-show="frmEditDispatch.trichYeu.$error.maxlength" style="color:red">Giới hạn 1000 ký tự</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Đính kèm File</label>
+                    <div class="col-sm-10">
+                        <input type="file" id="fileInput" name="fileInput" />
+                        <input type="text" class="form-control" id="dataEncode" name="description" ng-model="dispatch.data" placeholder="Description" disabled>
+                        <!--onchange="changeHandler(event)"-->
+                        <input type="button" ng-click="uploadFile()" value="submit" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Lĩnh vực</label>
+                    <div class="col-sm-10">
+                        <select type="text" class="form-control" name="linhVuc" required ng-model="dispatch.linhVuc">
+                            <option value="GDDT_GiaoducDaotao">Giáo dục - Giáo dục đào tạo</option>
+                            <option value="GDDT_Tieuchuannhagiao">Giáo dục - Tiêu chuẩn nhà giáo</option>
+                            <option value="GDDT_Vanbangchungchi">Giáo dục - Văn bằng chứng chỉ</option>
+                            <option value="Thanhtra_Tiepdan">Thanh tra tiếp dân</option>
+                            <option value="Noivu_Thiduakhenthuong">Nội vụ - Thi đua khen thưởng</option>
+                            <option value="Noivu_Tochuc_Hoatdonghoi">Nội vụ - Tổ chức - Hoạt động hội</option>
+                            <option value="Noivu_Tongiao">Nội vụ - Tôn giáo</option>
+                            <option value="VHTT_Vanhoathethao">Văn hóa thể thao</option>
+                            <option value="QLDT_NhaO">Quản lý đô thị - Nhà ở</option>
+                            <option value="QLDT_Xaydung">Quản lý đô thị - Xây dựng</option>
+                            <option value="KT_QuanlychatluongNong_Lam_Thuysan">Kinh tế - Quản lý chất lượng nông, lâm, thủy sản</option>
+                            <option value="KT_Luuthonghanghoatrongnuoc">Kinh tế - Lưu thông hàng hóa trong nước</option>
+                            <option value="KT_NongnghiepvaphattrienNongthon">Kinh tế - Nông nghiệp và phát triển nông thôn</option>
+                            <option value="TCKH_Dangkykinhdoanh">Đăng ký kinh doanh</option>
+                            <option value="CNVPDKDD_Dodac_Trichluc">Chi nhánh văn phòng đăng ký đất đai - Đo đạc - Trích lục</option>
+                            <option value="CNVPDKDD_Datdai">Chi nhánh văn phòng đăng ký đất đai - Đất đai</option>
+                            <option value="CNVPDKDD_Giaodichbaodam">Chi nhánh văn phòng đăng ký đất đai -Giao dịch bảo đảm</option>
+                            <option value="TNMT_Moitruong">Môi trường</option>
+                            <option value="TP_Tuphap_Hotich">Tư pháp - Hộ tịch</option>
+                            <option value="LDTBXH_LDTBvaXahoi">Lao động thương binh xã hội</option>
+                            <option value="TTYT_VesinhAntoanthucphanvaDinhduong ">Vệ sinh an toàn thực phẩm và dinh dưỡng</option>
+                        </select>
+                        <label class="error-content" ng-show="frmEditDispatch.linhVuc.$invalid" style="color:red">Trường này không thể bỏ trống</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Nơi nhận</label>
+                    <div class="col-sm-10">
+                        <select class="form-control selectpicker" name="noiNhan" multiple data-live-search="true" required ng-model="dispatch.noiNhan">
+                            <option value="HV_KTQS">Học viện kỹ thuật quân sự</option>
+                            <option value="HV_KTMM">Học viện kỹ thuật mật mã</option>
+                            <option value="DH_QGHN">Đại học quốc gia hà nội</option>
+                            <option value="HV_TC">Học viện tài chính</option>
+                            <option value="HV_BCVT">Học viện bưu chính viễn thông</option>
+                        </select>
+                        <label class="error-content" ng-show="frmAddDispatch.noiNhan.$invalid" style="color:red">Trường này không thể bỏ trống</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Người ký</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required name="signer" ng-model="nguoiKy">
+                        <label class="error-content" ng-show="frmAddDispatch.signer.$invalid" style="color:red">Trường này không thể bỏ trống</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Người ký nháy</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required name="secondsigner" ng-model="nguoiKyNhay">
+                        <label class="error-content" ng-show="frmAddDispatch.secondsigner.$invalid" style="color:red">Trường này không thể bỏ trống</label>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                <button class="btn btn-info float-right" ui-sref="arrivedDispatch">Hủy bỏ</button>
+                <button type="submit" ng-disabled="frmEditDispatch.$invalid" ng-click="Updatedispatch()" class="btn btn-info float-right">Sửa</button>
+            </div>
+            <!-- /.card-footer -->
+        </form>
+    </div>
+</section>
+<script>
+    $('.selectpicker').selectpicker();
+</script>

@@ -1,0 +1,90 @@
+﻿<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Thêm Mới Người Tham Gia</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item" style="cursor:pointer"><a ui-sref="VanthuDV">Văn thư đơn vị</a></li>
+                    <li class="breadcrumb-item active">Thêm Mới</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content">
+    <div class="card card-info">
+        <div class="card-header">
+            <h3 class="card-title">Thông tin văn thư đơn vị</h3>
+        </div>
+        <form class="form-horizontal" novalidate name="frmAddParticipant" role="form">
+            <div class="card-body">
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">ID</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required name="participantId" placeholder="ID" ng-model="participant.participantId" maxlength="50">
+                        <label class="error-content" ng-show="frmAddParticipant.participantId.$invalid" style="color:red">Trường này không thể bỏ trống</label>
+                        <label class="error-content" ng-show="frmAddParticipant.participantId.$error.maxlength" style="color:red">Trường giới hạn 50 ký tự</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Họ và tên</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required name="participantName" placeholder="Họ và tên" ng-model="participant.hoTen">
+                        <label class="error-content" ng-show="frmAddParticipant.participantName.$invalid" style="color:red">Trường này không thể bỏ trống</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Ngày sinh</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" required name="DateOfBirth" ng-model="participant.ngaySinh">
+                        <label class="error-content" ng-show="frmAddParticipant.DateOfBirth.$invalid" style="color:red">Trường này không thể bỏ trống</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Giới tính</label>
+                    <div class="col-sm-10">
+                        <input type="radio" id="male" name="gender" value="Nam" required ng-model="participant.gioiTinh">
+                        <label for="male">Nam</label>&nbsp;&nbsp;
+                        <input type="radio" id="female" name="gender" value="Nu" required ng-model="participant.gioiTinh">
+                        <label for="female">Nữ</label>&nbsp;&nbsp;
+                        <input type="radio" id="other" name="gender" value="Khac" required ng-model="participant.gioiTinh">
+                        <label for="other">Khác</label><br />
+                        <label class="error-content" ng-show="frmAddParticipant.gender.$invalid" style="color:red">Trường này không thể bỏ trống</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Địa chỉ</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" class="form-control" name="participantAddress" style="height:76px" ng-model="participant.diaChi " placeholder="Địa chỉ nơi ở hiện tại" maxlength="1000" />
+                        <label class="error-content" ng-show="frmAddParticipant.participantAddress.$error.maxlength" style="color:red">Trường giới hạn 1000 ký tự</label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" name="emailParticipant" ng-model="participant.email">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Đơn vị</label>
+                    <div class="col-sm-10">
+                        <select type="text" class="form-control" ng-model="participant.donVi">
+                            <option value="HV_KTQS">Học viện kỹ thuật quân sự</option>
+                            <option value="HV_KTMM">Học viện kỹ thuật mật mã</option>
+                            <option value="DH_QGHN">Đại học quốc gia hà nội</option>
+                            <option value="HV_TC">Học viện tài chính</option>
+                            <option value="HV_BCVT">Học viện bưu chính viễn thông</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-info float-right" ui-sref="VanthuDV">Hủy bỏ</button>
+                <button type="submit" ng-disabled="frmAddParticipant.$invalid" ng-click="AddParticipant()" class="btn btn-info float-right">Tạo mới</button>
+            </div>
+        </form>
+    </div>
+</section>
